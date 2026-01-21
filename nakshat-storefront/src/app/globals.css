@@ -32,10 +32,22 @@
   letter-spacing: -0.03em;
 }
 
+.brand-mark-mobile {
+  font-family: 'Melodrama-Medium', serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
 .brand-owner-mark {
   font-family: 'Melodrama-Regular', serif;
   font-size: 50px;
   letter-spacing: -0.03em;
+}
+
+.home-text {
+  font-family: 'Manrope-Semibold', serif;
+  font-size: 20px;
+  letter-spacing: 0.02em;
 }
 
 @font-face {
