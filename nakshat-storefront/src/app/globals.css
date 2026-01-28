@@ -56,6 +56,13 @@
   letter-spacing: 0.02em;
 }
 
+.home-text-mobile {
+  font-family: 'Manrope-Bold', serif;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+
 @font-face {
   font-family: 'Melodrama-Regular';
   src: url('/fonts/melodrama/Melodrama-Regular.otf') format('opentype');
@@ -137,6 +144,11 @@ body {
 html {
   height: 100%;
   overscroll-behavior: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 

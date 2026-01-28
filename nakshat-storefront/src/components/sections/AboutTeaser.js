@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useMemo, useRef } from 'react'
 
-const WORD_STAGGER = 0.1
-const WORD_START_DELAY = 0.25
+const WORD_STAGGER = 0.15
+const WORD_START_DELAY = 0.30
 const WORD_ANIM_DURATION = 0.35
 
 function WordReveal({ text, className = '' }) {

@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Turn as Hamburger } from 'hamburger-react'
+import FlipLink from '@/components/ui/flip-link'
+
+
 
 const links = [
   { href: '/shop', label: 'SHOP' },
@@ -94,16 +97,25 @@ export default function Navbar() {
                 {/* Left */}
                 <div className="h-full border-r border-white/30">
                   <nav className="flex h-full items-center gap-10 px-10 text-[18px] lg:text-[20px] font-medium text-white/90">
-                    <Link className="hover:text-white transition" href="/shop">
-                      Shop
-                    </Link>
-                    <Link className="hover:text-white transition" href="/about">
-                      About
-                    </Link>
-                    <Link className="hover:text-white transition" href="/lookbook">
-                      Lookbook
-                    </Link>
+                    <motion.span initial="rest" whileHover="hover" animate="rest">
+                      <FlipLink href="/shop" className="text-white hover:text-white transition">
+                        Shop
+                      </FlipLink>
+                    </motion.span>
+
+                    <motion.span initial="rest" whileHover="hover" animate="rest">
+                      <FlipLink href="/about" className="text-white hover:text-white transition">
+                        About
+                      </FlipLink>
+                    </motion.span>
+
+                    <motion.span initial="rest" whileHover="hover" animate="rest">
+                      <FlipLink href="/lookbook" className="text-white hover:text-white transition">
+                        Lookbook
+                      </FlipLink>
+                    </motion.span>
                   </nav>
+
                 </div>
 
                 {/* Center logo */}
@@ -153,9 +165,6 @@ export default function Navbar() {
           </div>
         </div>
       </motion.header>
-
-      {/* Spacer so page content doesn't go under fixed navbar */}
-      <div className="h-16" />
 
       {/* MOBILE FULLSCREEN MENU */}
       <AnimatePresence>

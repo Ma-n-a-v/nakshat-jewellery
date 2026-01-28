@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="mt-32 border-t border-white/55">
+    <footer className="mt-32">
       {/* Top footer columns */}
       <div className="mx-auto max-w-7xl px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Navigation */}
