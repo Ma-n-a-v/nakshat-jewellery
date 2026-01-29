@@ -7,13 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Turn as Hamburger } from 'hamburger-react'
 import FlipLink from '@/components/ui/flip-link'
 
-
-
 const links = [
   { href: '/shop', label: 'SHOP' },
   { href: '/about', label: 'ABOUT' },
   { href: '/contact', label: 'CONTACT' },
   { href: '/lookbook', label: 'LOOKBOOK' },
+  //ADDED: appointment in mobile menu
+  { href: '/appointment', label: 'BOOK APPOINTMENT' },
 ]
 
 export default function Navbar() {
@@ -26,9 +26,6 @@ export default function Navbar() {
       document.body.style.overflow = ''
     }
   }, [open])
-
-  /**menubar transition */
-  // Add these variants somewhere above return (inside the same file)
 
   const overlayVariants = {
     hidden: { opacity: 0 },
@@ -48,7 +45,7 @@ export default function Navbar() {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
-      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] }, // smooth luxury easing
+      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
     },
     exit: {
       opacity: 0,
@@ -78,8 +75,6 @@ export default function Navbar() {
     },
   }
 
-
-
   return (
     <>
       <motion.header
@@ -91,7 +86,6 @@ export default function Navbar() {
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="h-16">
-            {/* Content centered, but header line stays full width */}
             <div className="mx-auto h-full max-w-7xl">
               <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center">
                 {/* Left */}
@@ -115,7 +109,6 @@ export default function Navbar() {
                       </FlipLink>
                     </motion.span>
                   </nav>
-
                 </div>
 
                 {/* Center logo */}
@@ -130,10 +123,20 @@ export default function Navbar() {
 
                 {/* Right */}
                 <div className="h-full">
-                  <div className="flex h-full items-center justify-end px-10 text-[18px] lg:text-[20px] font-medium text-white/90">
-                    <Link className="hover:text-white transition" href="/cart">
-                      Cart (0)
-                    </Link>
+                  <div className="flex h-full items-center justify-end gap-10 px-10 text-[18px] lg:text-[20px] font-medium text-white/90">
+                    {/* ADDED: Book Appointment left of Cart with same hover animation */}
+                    <motion.span initial="rest" whileHover="hover" animate="rest">
+                      <FlipLink href="/appointment" className="text-white hover:text-white transition">
+                        Book Appointment
+                      </FlipLink>
+                    </motion.span>
+
+                    {/* CHANGED: give Cart the same FlipLink hover animation */}
+                    <motion.span initial="rest" whileHover="hover" animate="rest">
+                      <FlipLink href="/cart" className="text-white hover:text-white transition">
+                        Cart (0)
+                      </FlipLink>
+                    </motion.span>
                   </div>
                 </div>
               </div>
@@ -176,7 +179,6 @@ export default function Navbar() {
             animate="show"
             exit="exit"
           >
-            {/* panel */}
             <motion.div
               className="absolute inset-x-0 top-0 bg-[#0f0f0f] border-b border-white/15"
               variants={panelVariants}
@@ -184,7 +186,6 @@ export default function Navbar() {
               animate="show"
               exit="exit"
             >
-              {/* Top bar */}
               <div className="h-16 flex items-center justify-between px-5">
                 <Link
                   href="/"
@@ -206,10 +207,8 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* Divider */}
               <div className="h-px w-full bg-white/30" />
 
-              {/* Menu links */}
               <motion.nav className="px-5 pt-10 pb-12">
                 <motion.div
                   className="flex flex-col gap-7"
@@ -227,7 +226,6 @@ export default function Navbar() {
                         {l.label}
                       </Link>
 
-                      {/* subtle underline */}
                       <div className="mt-4 h-px w-full bg-white/10" />
                     </motion.div>
                   ))}
@@ -235,7 +233,6 @@ export default function Navbar() {
               </motion.nav>
             </motion.div>
 
-            {/* click outside to close */}
             <button
               aria-label="Close menu"
               className="absolute inset-0"
@@ -244,7 +241,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </>
   )
 }

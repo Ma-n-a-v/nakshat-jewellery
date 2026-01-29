@@ -1,6 +1,9 @@
 import Hero from '@/components/sections/Hero'
 import AboutTeaser from '@/components/sections/AboutTeaser' 
 import CollectionGrid from '@/components/sections/CollectionGrid'
+import JewelryMomentSection from '@/components/sections/JewelryMomentSection'
+import ProductFeaturedSection from '@/components/sections/ProductFeaturedSection'
+import BookSpecialistScrollSection from '@/components/sections/BookSpecialistScrollSection'
 
 export default function Home() {
   return (
@@ -11,6 +14,9 @@ export default function Home() {
         {/** content goes here (other components of the home page) */}
         <AboutTeaser />
         <CollectionGrid />
+        <JewelryMomentSection />
+        <ProductFeaturedSection />
+        <BookSpecialistScrollSection />
       </section>
     </main>
   )
